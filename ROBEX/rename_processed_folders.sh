@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directorio principal que contiene los subdirectorios
-DIRECTORIO_PRINCIPAL="/Disco2021-I/david/tfm/dataset/OASIS3_processed"
+DIRECTORIO_PRINCIPAL="/home/david/TFM/dataset/OASIS3_processed"
 
 
 # Crear un array para almacenar los nombres de directorios que ya han sido procesados
@@ -30,6 +30,7 @@ for subdirectorio in $DIRECTORIO_PRINCIPAL/*; do
     if [[ ! -z ${directorios_procesados["$patid$sesid"]} ]]; then
       # Si el directorio ya ha sido procesado, mueve el directorio actual a la carpeta correspondiente
       mv "${DIRECTORIO_PRINCIPAL}/${nuevo_nombre}/orig_nu_noskull.nii.gz" "${DIRECTORIO_PRINCIPAL}/${patid}_${sesid}/${type}"
+      mv "${DIRECTORIO_PRINCIPAL}/${nuevo_nombre}/orig_nu.nii.gz" "${DIRECTORIO_PRINCIPAL}/${patid}_${sesid}/${type}"
       
       echo "1. El directorio $nuevo_nombre ha sido movido a ${patid}_${sesid}/${type}"
     else
@@ -42,6 +43,7 @@ for subdirectorio in $DIRECTORIO_PRINCIPAL/*; do
       
       # Mueve el directorio actual a la carpeta correspondiente
       mv "${DIRECTORIO_PRINCIPAL}/${nuevo_nombre}/orig_nu_noskull.nii.gz" "${DIRECTORIO_PRINCIPAL}/${patid}_${sesid}/${type}"
+      mv "${DIRECTORIO_PRINCIPAL}/${nuevo_nombre}/orig_nu.nii.gz" "${DIRECTORIO_PRINCIPAL}/${patid}_${sesid}/${type}"
       
       echo "2. El directorio $nuevo_nombre ha sido movido a ${patid}_${sesid}/${type}"
       
